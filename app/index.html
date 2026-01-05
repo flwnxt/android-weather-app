@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <nav class="navbar">
+ <!-- <div class="nav-logo">TWA</div>-->
+  <div id = "cloud"></div>
+  <div class="nav-links">
+    <button class="nav-btn"><i class="home-icon"></i> Home</button>
+    <button class="nav-btn"><i class="article-icon"></i> Articles</button>
+    <button class="nav-btn login">Login</button>
+  </div>
+</nav>
+
+<main class="content-wrapper">
+<!--    <body> -->
+    <h2 class="title">Weather App</h2>
+    <h3 class="city"></h3>
+    <section class="searchBar flex-container">
+      <input
+        type="text"
+        name="search"
+        placeholder="City search..."
+        class="citySearch"
+      />
+      <input
+        type="button"
+        name="weatherButton"
+        value="Search"
+        onclick="handleWeather()"
+      />
+    </section>
+
+    <div class="loading"></div>
+
+    <section class="weather grid-container">
+      <div>
+        <p>Current weather</p>
+        <img class="weatherNowIcon" src="" height="100px" width="100px" />
+        <h2 class="degrees"></h2>
+      </div>
+      <div>
+        <p class="feelsLike"></p>
+        <p class="tempMin"></p>
+        <p class="tempMax"></p>
+      </div>
+      <div>
+        <p class="wind"></p>
+        <p class="humidity"></p>
+        <p class="pressure"></p>
+      </div>
+    </section>
+
+
+    <section class="forecast">
+      <p>Vremea in urmatoarele zile</p>
+      <div class="grid-container forecastTable"></div>
+    </section>
+    <script type="text/javascript" src="index.js"></script>
+<!--   </body>-->
+</main>
+  <footer class="bottom-bar">
+  <p>MAV 2025</p>
+  </footer>
+</html>
