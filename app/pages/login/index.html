@@ -9,7 +9,33 @@
     <link rel="stylesheet" href="../../shared/css/navbar.css">
 </head>
 <body>
+    <!-- Inserare navbar -->
     <div id="navbar-container"></div>
+
+    <main class="card">
+    <h1>Autentificare</h1>
+    <p>
+        <span class="badge info">Foloseste: admin / admin</span>
+    </p>
+
+    <form id="loginForm" novalidate>
+      <label>
+        <span class="badge secondary">Username</span>
+        <input id="username" type="text" autocomplete="username" required />
+      </label>
+
+      <label>
+        <span class="badge secondary">Parola</span>
+        <input id="password" type="password" autocomplete="current-password" required />
+      </label>
+
+      <button type="submit">Login</button>
+      <p id="error" class="error" aria-live="polite"></p>
+    </form>
+  </main>
+
+    <!-- Inserare navbar -->
     <script src="../../shared/js/navbar.js"></script>
+    <script src="./login.js"></script>
 </body>
 </html>
