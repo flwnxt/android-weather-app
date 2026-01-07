@@ -1,13 +1,6 @@
 // Logica de login din pagina login.html
 // Cand userul se logheaza flag-ul "isLoggedIn" din localStorage va avea valoarea "True"
 
-
-// Preluare date din formular 
-const form = document.getElementById("loginForm");
-const usernameEl = document.getElementById("username");
-const passwordEl = document.getElementById("password");
-const errorEl = document.getElementById("error"); // error handling
-
 // username si password hardocate
 const AUTH_KEY = "isLoggedIn";
 const USERNAME = "admin";
@@ -17,6 +10,12 @@ const PASSWORD = "admin";
 if (localStorage.getItem(AUTH_KEY) === "true") {
   window.location.href = "../home/index.html"; 
 }
+
+// Preluare date din formular 
+const form = document.getElementById("loginForm");
+const usernameEl = document.getElementById("username");
+const passwordEl = document.getElementById("password");
+const errorEl = document.getElementById("error"); // error handling
 
 // Listener pentru submit-ul form-ului
 form.addEventListener("submit", (e) => {
