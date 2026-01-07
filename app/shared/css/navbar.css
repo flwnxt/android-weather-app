@@ -1,0 +1,98 @@
+/*  Header CSS
+    Navbar CSS
+    Cloud CSS */
+
+#cloud {
+	width: 85px; height: 30px;
+    background: #f2f9fe;
+  
+    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.05, #b1d8f4), to(#d6f0fd));
+    background: -webkit-linear-gradient(#f2f9fe 5%, #d6f0fd 100%);
+    background: -moz-linear-gradient(#f2f9fe 5%, #d6f0fd 100%);
+    background: -o-linear-gradient(#f2f9fe 5%, #d6f0fd 100%);
+    background: linear-gradient(#8db3ce 5%, #65ccff 100%);
+  
+    border-radius: 100px;
+    position: relative;
+    margin: 15px 10px 0px 10px;
+}
+
+#cloud:after, #cloud:before {
+    content: "";
+    position: absolute; 
+    background: #83b9e0;
+/*  z-index: -1; */
+}
+
+#cloud:after {
+    width: 25px;
+    height: 22px;
+    top: -12px;
+    left: 12px;
+    border-radius: 100px;
+}
+
+#cloud:before {
+    width: 45px;
+    height: 45px;
+    top: -22px;
+    right: 12px;
+    border-radius: 200px;
+}
+
+/*************************************
+/*Top Navbar Styling */
+.navbar {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: strech;
+    padding: 1.5rem 3rem;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 5px 5px 10px black;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.2);
+    z-index: 4;
+}
+
+#navbar-container {width: 100%}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fe8c01;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #333;
+    padding: 8px 12px;
+    text-decoration: none;
+}
+
+.nav-btn:hover {
+    background: rgba(0,0,0,0.05);
+    border-radius: 5px;
+}
+
+/* .nav-btn.active {
+  border-bottom: 2px solid #ff9900;
+} */
+
+.nav-btn.login {
+    background-color: #ff9900;
+    color: white;
+    border-radius: 5px;
+}
