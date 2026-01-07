@@ -13,7 +13,38 @@
     </script>
 </head>
 <body>
+
     <div id="navbar-container"></div>
-    <script src="../../shared/js/navbar.js"></script>
+
+  <main class="card">
+    <h1>Feedback</h1>
+    <p>
+      <span class="badge info">Spune-ne părerea ta</span>
+    </p>
+
+    <form id="feedbackForm" novalidate>
+      <label>
+        <span class="badge secondary">Nume</span>
+        <input id="name" type="text" autocomplete="name" required />
+      </label>
+
+      <label>
+        <span class="badge secondary">Titlu</span>
+        <input id="title" type="text" required />
+      </label>
+
+      <label>
+        <span class="badge secondary">Text feedback</span>
+        <textarea id="message" rows="5" required></textarea>
+      </label>
+
+      <button type="submit">Trimite</button>
+      <p id="status" class="error" aria-live="polite"></p>
+    </form>
+</main>
+
+
+  <script src="../../shared/js/navbar.js"></script>
+  <script src="./feedback.js"></script>
 </body>
 </html>
