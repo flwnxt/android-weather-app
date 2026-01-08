@@ -19,7 +19,7 @@
   <main class="card">
     <h1>Feedback</h1>
     <p>
-      <span class="badge info">Spune-ne părerea ta</span>
+      <span class="badge info">Spune-ne parerea ta</span>
     </p>
 
     <form id="feedbackForm" novalidate>
@@ -38,13 +38,13 @@
         <textarea id="message" rows="5" required></textarea>
       </label>
 
-      <button type="submit">Trimite</button>
+      <button id="sendBtn" type="button">Trimite</button>
       <p id="status" class="error" aria-live="polite"></p>
     </form>
 </main>
 
 
   <script src="../../shared/js/navbar.js"></script>
-  <script src="./feedback.js"></script>
+  <script src="./feedback.js" defer></script>
 </body>
 </html>

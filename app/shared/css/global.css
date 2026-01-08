@@ -9,7 +9,6 @@
 
 .card h1 { margin: 0 0 8px; }
 
-
 .badge {
   display: inline-flex;        
   align-items: center;
@@ -33,7 +32,6 @@
   background-color: #ff8c1a; 
   color: #000000;  
 }
-
 
 label { display: grid; gap: 6px; margin: 12px 0; }
 input {
@@ -85,6 +83,16 @@ input,
 textarea {
   width: 100%;
   box-sizing: border-box;
+}
+
+/* mesaj status cu animatie pentru formulare */
+#status {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+#status.fade-out {
+  opacity: 0;
 }
 
 

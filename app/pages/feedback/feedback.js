@@ -1,6 +1,8 @@
 // feedback.js
+
 const form = document.getElementById("feedbackForm");
 const statusEl = document.getElementById("status");
+const sendBtn = document.getElementById("sendBtn");
 
 function setStatus(message, type = "error") {
   statusEl.textContent = message;
@@ -39,9 +41,8 @@ function validate({ name, title, message }) {
 // Functie pentru a trimite datele din payload catre endpoint-ul "/feedback" din Flask
 async function submitFeedback(payload) {
   // IMPORTANT:
-  // - Flask local: http://localhost:5000/feedback
-  // - pe Android emulator: http://10.0.2.2:5000/feedback
-  const API_URL = "http://localhost:5000/feedback";
+  // const API_URL = "http://localhost:5001/feedback";
+  const API_URL = "http://10.0.2.2:5001/feedback";
 
     // Trimitem propriu-zis request-ul catre server (si asteptam raspunsul - prin await)
     // Salvam response-ul in constanta "res"
@@ -66,12 +67,11 @@ async function submitFeedback(payload) {
   return data;
 }
 
-// Asculta event-ul de "submit"
-form.addEventListener("submit", async (e) => {
-  e.preventDefault(); // anuleaza refresh-ul automat al form-uliu
-  setStatus(""); // curatam mesajul anterior
 
-//   Extragem datele din input-uri si afisam mesaje de eroare 
+sendBtn.addEventListener("click", async () => {
+  setStatus("");
+  statusEl.classList.remove("fade-out");
+
   const payload = getPayload();
   const validationError = validate(payload);
   if (validationError) {
@@ -79,21 +79,75 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
-  // Blocarea butonului de submit - previne multiple clicks 
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const originalText = submitBtn.textContent;
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Se trimite...";
+  const originalText = sendBtn.textContent;
+  sendBtn.disabled = true;
+  sendBtn.textContent = "Se trimite...";
 
-//   Trimiterea propriu-zisa a mesajului
   try {
     await submitFeedback(payload);
     setStatus("Feedback-ul a fost trimis ✅", "success");
-    form.reset();
+
+    setTimeout(() => {
+      statusEl.classList.add("fade-out");
+    }, 2500);
+
+    setTimeout(() => {
+      statusEl.textContent = "";
+      statusEl.classList.remove("fade-out");
+      form.reset();
+    }, 3000);
+
   } catch (err) {
-    setStatus(err.message || "A aparut o eroare.", "error");
+    statusEl.classList.remove("fade-out");
+    setStatus(err.message || "A apărut o eroare.", "error");
   } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalText;
+    sendBtn.disabled = false;
+    sendBtn.textContent = originalText;
   }
 });
+
+
+// Asculta event-ul de "submit"
+// form.addEventListener("submit", async (e) => {
+//     e.preventDefault(); // anuleaza refresh-ul automat al form-ului
+//     setStatus(""); // curatam mesajul anterior
+
+// // Extragem datele din input-uri si afisam mesaje de eroare 
+//   const payload = getPayload();
+//   const validationError = validate(payload);
+//   if (validationError) {
+//     setStatus(validationError, "error");
+//     return;
+//   }
+
+//   // Blocarea butonului de submit - previne multiple clicks 
+//   const submitBtn = form.querySelector('button[type="submit"]');
+//   const originalText = submitBtn.textContent;
+//   submitBtn.disabled = true;
+//   submitBtn.textContent = "Se trimite...";
+
+// //   Trimiterea propriu-zisa a mesajului
+//   try {
+//     await submitFeedback(payload);
+//     setStatus("Feedback-ul a fost trimis ✅", "success");
+
+//      // afisam mesajul de "success" 3 secunde
+//     setTimeout(() => {
+//         statusEl.classList.add("fade-out");
+//     }, 2500); // incepe fade-out dupa 2.5s
+
+//     setTimeout(() => {
+//         statusEl.textContent = "";
+//         statusEl.classList.remove("fade-out");
+//     }, 3000); // dispare complet dupa 3s
+
+//     setTimeout(() => form.reset(), 6000);
+
+//   } catch (err) {
+//     statusEl.classList.remove("fade-out");
+//     setStatus(err.message || "A aparut o eroare.", "error");
+//   } finally {
+//     submitBtn.disabled = false;
+//     submitBtn.textContent = originalText;
+//   }
+// });

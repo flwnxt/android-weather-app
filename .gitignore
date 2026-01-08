@@ -1,0 +1,24 @@
+# Node / Capacitor
+node_modules/
+dist/
+build/
+
+# Android (Capacitor)
+android/.gradle/
+android/.idea/
+android/build/
+android/local.properties
+
+# Python
+venv/
+__pycache__/
+*.pyc
+.env
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
