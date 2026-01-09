@@ -1,6 +1,7 @@
 /* Main CSS file */
 
 /* * *  General Styling for forms * * */
+
 .card { 
   width: min(420px, 92vw);
   background: rgba(255,255,255,0.9);
@@ -99,6 +100,10 @@ textarea {
 
 /*********************************/
 /* * * General root styles * *  */
+
+:root {
+  --home-primary: #183153;
+}
 
 *, *::before, *::after {
   box-sizing: border-box;

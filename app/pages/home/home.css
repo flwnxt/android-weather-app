@@ -1,0 +1,138 @@
+/* Containerul principal al paginii */
+.home {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* Containerul “floating” transparent */
+.home-shell {
+  width: min(720px, 92vw);
+  padding: 1.5rem;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+
+/* Titlu + subtitlu */
+.home-header h1 {
+  margin: 0 0 0.3rem;
+  font-size: 1.7rem;
+  color: #fff;
+}
+
+.home-header p {
+  margin: 0 0 1.2rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Grid de butoane */
+.home-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
+@media (min-width: 640px) {
+  .home-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Fiecare buton: card propriu */
+.home-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+
+  text-decoration: none;
+  color: #fff;
+
+  background: rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.home-card:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.22);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.home-card:active {
+  transform: translateY(0px);
+}
+
+/* Icon */
+.home-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+  background: rgba(255, 165, 0, 0.24); /* accent portocaliu */
+  color: var(--home-primary);
+  border: 1px solid rgba(255, 165, 0, 0.35);
+
+  font-size: 1.25rem;
+}
+
+/* Text */
+.home-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* Grup text + badge */
+.home-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Asterix discret */
+.req-star {
+  color: #ffa500;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* Badge "Login required" */
+.req-badge {
+  width: fit-content;
+  padding: 0.22rem 0.6rem;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+
+  border-radius: 999px;
+
+  /* 🔑 mai aproape de solid */
+  background: rgba(255, 165, 0, 0.55);
+  color: var(--home-primary);
+  border: 1.5px solid rgba(255, 165, 0, 0.8);
+
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.home,
+.home h1,
+.home p,
+.home-text {
+  color: var(--home-primary);
+}
