@@ -1,0 +1,150 @@
+
+/* Contact.css */
+
+.contact {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+
+  /* culoare primary */
+  --primary: #183153;
+}
+
+/* Container principal floating */
+.contact-shell {
+  width: min(820px, 92vw);
+  padding: 1.5rem;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+
+.contact-header h1 {
+  margin: 0 0 0.8rem;
+  font-size: 1.7rem;
+  color: var(--primary);
+}
+
+.contact-header p {
+  margin: 0 0 1.2rem;
+  color: rgba(24, 49, 83, 0.85);
+}
+
+/* Grid carduri */
+.contact-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .contact-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: start;
+  }
+}
+
+/* Card individual */
+.contact-card {
+  padding: 1.1rem 1.1rem;
+  border-radius: 16px;
+
+  background: rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+.contact-card h2 {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+  color: var(--primary);
+}
+
+/* Lista autori */
+.authors {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.author {
+  padding: 0.85rem 0.9rem;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Nume + mail */
+.author-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.author-mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  margin-top: 0.45rem;
+  text-decoration: none;
+  color: rgba(24, 49, 83, 0.95);
+  font-weight: 500;
+}
+
+.author-mail:hover {
+  text-decoration: underline;
+}
+
+/* Info note */
+.note {
+  margin-top: 1rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 12px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: rgba(24, 49, 83, 0.9);
+  background: rgba(230, 126, 34, 0.65);
+  border: 1px solid rgba(255, 165, 0, 0.45);
+}
+
+/* Bloc universitate */
+.uni-lines {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.uni-line {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  padding: 0.75rem 0.85rem;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: rgba(24, 49, 83, 0.95);
+  font-weight: 700;
+}
+
+/* Icon-uri */
+.contact i {
+  color: var(--primary);
+}
