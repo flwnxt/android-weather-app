@@ -97,35 +97,8 @@ textarea {
   opacity: 0;
 }
 
-
-Main Content Wrapper
-.content-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px 0;
-    gap: 10px;
-}
-
-/*Bottom Navbar Styling */
-.bottom-bar {
-    width: 100%;
-    background-color: #333;
-    color: white;
-    padding: 2rem 6rem;
-    display: flex;
-    justify-content: flex-end;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.9);
-/*    box-shadow: 5px 5px 10px black; */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.2);
-    z-index: 4;
-}
-
 /*********************************/
+/* * * General root styles * *  */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -142,185 +115,21 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background: linear-gradient(90deg,#FFFF00 1%,#FFA500 25%,#F14444 45%,#D53567 55%,#9A109A 84%);
   overflow-x: hidden;
+  height: 100%;
 }
 
 html { 
   overflow-x: hidden; 
   background: linear-gradient(90deg,#FFFF00 1%,#FFA500 25%,#F14444 45%,#D53567 55%,#9A109A 84%);
+  height: 100%;
 }
 
-.flex-container {
+.app-layout {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
 }
 
-.title {
-  font-size: 50px;
-  text-align: center;
-}
-
-.searchBar {
-  position: relative;
-  top: 100px;
-  transition: top 0.8s ease-in;
-  z-index: 100;
-  width: 100%;
-  max-width: 800px;
-
-}
-
-.searchBar.flex-container {
-  flex-direction: row;
-  font-size: 3rem;
-}
-
-.searchBar input[type='text'] {
-  flex: 2;
-  border-radius: 10px 10px 10px 10px;
-}
-
-.searchBar input[type='button'] {
+.app-content {
   flex: 1;
-  border-radius: 10px 10px 10px 10px;
-  background-color: #ed8404;
-  color: #1f0f02;
-  margin-left: 10px;
-}
-
-.searchBar input {
-  padding: 16px;
-  border: 2px solid #000000;
-}
-
-.searchBar input:focus {
-  outline: none;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr 2fr;
-  gap: 10px;
-  justify-items: center;
-  align-items: center;
-}
-
-/*.weather.grid-container {
-  align-items: start;
-} */
-
-.weather div:first-child {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.degrees {
-  text-align: center;
-}
-
-.loading {
-  width: 4rem;
-  height: 4rem;
-  border: 5px solid #0e0e0e;
-  border-top: 6px solid #ed7104;
-  border-radius: 100%;
-  margin: auto;
-  visibility: hidden;
-  position: fixed;
-  top: 45%;
-  animation: spin 1s infinite linear;
-}
-
-.loading.display {
-  visibility: visible;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.weather,
-.forecast {
-  opacity: 0;
-  transition: opacity 1s ease-in;
-/*  background-color: #1f1c1c; */
-  background: rgba(255, 255, 255, 0.9);
-/*  padding: 20px;*/
-  width: 100%;
-  max-width: 800px;
-/*  border: 2px solid #b4becb; */
-  box-shadow: 5px 5px 10px black;
-/*  background: rgba(0, 0, 0, 0.1); */
-  border-radius: 10px;
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
-/*  border: 1px solid rgba(0, 0, 0, 0.18); */
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 20px;
-  z-index: 4;
-}
-
-.forecast .grid-container {
-  grid-template-columns: 1fr;
-  justify-items: start;
-}
-
-.table-grid {
-  border-bottom: 2px solid rgb(255, 106, 0);
-  width: 100%;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  justify-items: center;
-  align-items: center;
-}
-
-@media (max-width: 500px) {
-  .searchBar.flex-container {
-    flex-direction: column;
-  }
-
-  .searchBar input[type='text'] {
-    width: 80%;
-    padding: 15px;
-    border-radius: 10px 10px 10px 10px;
-    border: 2px solid #b4becb;
-  }
-
-  .searchBar input[type='button'] {
-    border-radius: 10px 10px 10px 10px;
-    border: 2px solid #b4becb;
-    margin-top: 15px; 
-    padding: 15px;
-    margin: 10px 10px 10px 10px;
-  }
-
-  .weather.grid-container {
-    grid-template-columns: 1fr;
-  }
-
-  .forecast .grid-container {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-
-  .forecast p {
-    text-align: center;
-  }
-
-  .table-grid {
-    grid-template-columns: 1fr;
-    padding-bottom: 16px;
-  }
-
-  .weather,
-  .forecast {
-    max-width: 300px;
-  }
 }

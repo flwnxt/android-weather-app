@@ -23,10 +23,9 @@ Sa nu modifici culorile initiale ale css-ului decat daca specific eu explicit as
 2. Creare pagini pentru fiecare menu
 
 
-- !sa rezolv bug-ul cu drawer-ul
+
 - WebViews
 - sa adaug continut pentru celelalte pagini
-- Sa blochez scroll-ul cand se deschide meniul 
 - sa fac link-urile active cu portocaliu si sa evidentiez login-ul
 - sa rezolv bug-ul cu refresh-ul formularului
 - insert: nori / soare / fulger, si sa ii coloram in functie de raspunsul de pe API
