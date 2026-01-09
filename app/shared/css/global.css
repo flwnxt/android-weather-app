@@ -2,92 +2,6 @@
 
 /* * *  General Styling for forms * * */
 
-.card { 
-  width: min(420px, 92vw);
-  background: rgba(255,255,255,0.9);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.card h1 { margin: 0 0 8px; }
-
-.badge {
-  display: inline-flex;        
-  align-items: center;
-  width: fit-content;          
-  max-width: max-content;      
-
-  background-color: #fe8c01;
-  color: #fff;
-  padding: 4px 12px;
-  border-radius: 999px;
-
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.badge.info {
-  font-size: 14px;          
-  padding: 6px 14px;        
-  margin-bottom: 14px;
-
-  background-color: #ff8c1a; 
-  color: #000000;  
-}
-
-label { display: grid; gap: 6px; margin: 12px 0; }
-input {
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.2);
-  font-size: 16px;
-}
-
-.formButton {
-  width: 100%;
-  margin-top: 12px;
-  padding: 10px 12px;
-  border: 0;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-
-  background-color: #333;
-  color: white;
-
-  transition: background-color 0.25s ease, transform 0.15s ease;
-}
-
-.formButton:hover {
-  background-color: #fe8c01;
-  transform: translateY(-1px);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
-.error {
-  margin: 10px 0 0;
-  color: #b00020;
-  min-height: 1.2em;
-}
-
-textarea {
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.2);
-  font-size: 16px;
-  resize: vertical;
-}
-
-input,
-textarea {
-  width: 100%;
-  box-sizing: border-box;
-}
-
 /* mesaj status cu animatie pentru formulare */
 #status {
   opacity: 1;
@@ -96,7 +10,7 @@ textarea {
 
 #status.fade-out {
   opacity: 0;
-}
+} */
 
 /*********************************/
 /* * * General root styles * *  */
@@ -112,7 +26,6 @@ textarea {
 body {
   margin: 0;
   padding: 0;
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -140,7 +53,7 @@ html {
 }
 
 /* *** Varianta mai inchisa *** */
-/* Design general GRI mat pentru card-uri din pagini */
+
 /* .home-shell,
 .contact-shell {
   background: rgba(220, 220, 220, 0.65); 
@@ -156,9 +69,10 @@ html {
   color: #183153;
 } */
 
-
+/* Design general GRI mat pentru toate card-urile din pagini */
 .home-shell,
-.contact-shell {
+.contact-shell,
+.login-shell {
   background: rgba(220, 220, 220, 0.52); 
 
   backdrop-filter: blur(14px) saturate(110%);

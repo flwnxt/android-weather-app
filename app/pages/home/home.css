@@ -134,6 +134,7 @@
 .home,
 .home h1,
 .home p,
-.home-text {
+.home-text, 
+.home-card {
   color: var(--home-primary);
 }
