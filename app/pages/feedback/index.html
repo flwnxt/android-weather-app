@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="feedback.css">
     <link rel="stylesheet" href="../../shared/css/global.css">
     <link rel="stylesheet" href="../../shared/css/navbar.css">
+    <link rel="stylesheet" href="../../shared/css/footer.css">
     <script type="module">
       import { requireAuth } from "../../auth.js";
       requireAuth();
@@ -38,12 +39,12 @@
         <textarea id="message" rows="5" required></textarea>
       </label>
 
-      <button id="sendBtn" type="button">Trimite</button>
+      <button class="formButton" id="sendBtn" type="button">Trimite</button>
       <p id="status" class="error" aria-live="polite"></p>
     </form>
 </main>
 
-
+  <!-- Inserare scripturi js -->
   <script src="../../shared/js/navbar.js"></script>
   <script src="./feedback.js" defer></script>
 </body>

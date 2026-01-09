@@ -1,4 +1,6 @@
-/* General Styling for forms */
+/* Main CSS file */
+
+/* * *  General Styling for forms * * */
 .card { 
   width: min(420px, 92vw);
   background: rgba(255,255,255,0.9);
@@ -41,7 +43,7 @@ input {
   font-size: 16px;
 }
 
-button {
+.formButton {
   width: 100%;
   margin-top: 12px;
   padding: 10px 12px;
@@ -56,8 +58,8 @@ button {
   transition: background-color 0.25s ease, transform 0.15s ease;
 }
 
-button:hover {
-  background-color: #fe8c01; /* portocaliu */
+.formButton:hover {
+  background-color: #fe8c01;
   transform: translateY(-1px);
 }
 
@@ -125,16 +127,25 @@ Main Content Wrapper
 
 /*********************************/
 
-body {
+*, *::before, *::after {
   box-sizing: border-box;
+}
+
+body {
   margin: 0;
   padding: 0;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 20px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: linear-gradient(90deg,#FFFF00 1%,#FFA500 25%,#F14444 45%,#D53567 55%,#9A109A 84%);
+  overflow-x: hidden;
+}
+
+html { 
+  overflow-x: hidden; 
   background: linear-gradient(90deg,#FFFF00 1%,#FFA500 25%,#F14444 45%,#D53567 55%,#9A109A 84%);
 }
 

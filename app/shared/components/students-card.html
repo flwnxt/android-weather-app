@@ -1,0 +1,21 @@
+<section class="students-card">
+  <button class="students-toggle" aria-expanded="false">
+    👥 Studenți <span class="chev">▾</span>
+  </button>
+
+  <div class="students-content" hidden>
+    <p>Vasile Maria Alberta</p>
+    <p>Florescu Dan Stefan</p>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll(".students-toggle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const content = btn.nextElementSibling;
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      content.hidden = expanded;
+    });
+  });
+</script>
