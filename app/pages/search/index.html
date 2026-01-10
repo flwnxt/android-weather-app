@@ -1,23 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather</title>
-    <link rel="stylesheet" href="search.css">
-    <link rel="stylesheet" href="../../shared/css/global.css">
-    <link rel="stylesheet" href="../../shared/css/navbar.css">
-    <link rel="stylesheet" href="../../shared/css/footer.css">
-    <script type="module">
-      import { requireAuth } from "../../auth.js";
-      requireAuth();
-    </script>
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather</title>
+  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="../../shared/css/global.css">
+  <link rel="stylesheet" href="../../shared/css/navbar.css">
+  <link rel="stylesheet" href="../../shared/css/footer.css">
+  <script type="module">
+    import { requireAuth } from "../../auth.js";
+    requireAuth();
+  </script>
+</head>
+
 <body>
+  <div class="app-layout">
   <div id="navbar-container"></div>
 
-  <main class="content-wrapper">
+  <main class="content-wrapper search app-content">
+    <header class="search-header">
+      <h2 class="title">Weather App</h2>
+      <p class="search-subtitle">Cauta un oras si vezi vremea acum + prognoza pe zile.</p>
+    </header>
+
+    <section class="search-shell">
+      <!-- Search bar  -->
+      <section class="searchBar flex-container">
+        <input type="text" name="search" placeholder="City search..." class="citySearch" autocomplete="off" />
+        <input type="button" name="weatherButton" value="Search" onclick="handleWeather()" />
+      </section>
+
+      <!-- city output -->
+      <h3 class="city"></h3>
+
+      <!-- loading area -->
+      <div class="loading" aria-label="Loading"></div>
+
+      <!-- current weather -->
+      <section class="weather grid-container">
+        <div class="weather-main">
+          <p class="section-label">Current weather</p>
+          <img class="weatherNowIcon" src="" height="100" width="100" alt="" />
+          <h2 class="degrees"></h2>
+        </div>
+
+        <div class="weather-meta">
+          <p class="feelsLike"></p>
+          <p class="tempMin"></p>
+          <p class="tempMax"></p>
+        </div>
+
+        <div class="weather-meta">
+          <p class="wind"></p>
+          <p class="humidity"></p>
+          <p class="pressure"></p>
+        </div>
+      </section>
+
+      <section class="forecast">
+        <p class="section-label">Vremea in urmatoarele zile</p>
+        <div class="grid-container forecastTable"></div>
+      </section>
+    </section>
+
+    <script type="text/javascript" src="search.js"></script>
+  </main>
+
+
+  <!-- <main class="content-wrapper">
       <h2 class="title">Weather App</h2>
       <h3 class="city"></h3>
       <section class="searchBar flex-container">
@@ -61,11 +114,13 @@
         <div class="grid-container forecastTable"></div>
       </section>
       <script type="text/javascript" src="search.js"></script>
-  </main>
+  </main> -->
 
   <div id="footer-container"></div>
-  <!-- Inserare scripturi js -->
-  <script src="../../shared/js/navbar.js"></script>
-  <script src="../../shared/js/footer.js"></script>
+  </div>
+</body>
+<!-- Inserare scripturi js -->
+<script src="../../shared/js/navbar.js"></script>
+<script src="../../shared/js/footer.js"></script>
 </body>
 </html>

@@ -1,100 +1,179 @@
+/* =========================
+   Search (Weather) - formular
+   ========================= */
 
-/*Main Content Wrapper */
+:root {
+  --primary: #183153;
+}
 
-.content-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px 0;
-    gap: 10px;
+/* Titlu principal */
+.title {
+  color: var(--primary);
+}
+
+/* Subtitlu */
+.search-subtitle {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.title,
+.search-subtitle,
+.city {
+  text-shadow: 0 1px 0 rgba(255,255,255,0.35);
 }
 
 
-/*********************************/
+/* Textul dinamic: Weather for BUCHAREST at ... */
+.city {
+  color: var(--primary);
+}
 
+.content-wrapper.search.app-content {
+  flex: 1;
+  display: grid;
+
+  /* NU mai centram pe verticala -> elimina "gap"-ul mare jos */
+  justify-items: center;
+  align-content: start;
+
+  padding: clamp(24px, 6vh, 48px) 16px;
+  gap: 16px;
+}
+
+/* Header */
+.search-header {
+  width: 100%;
+  max-width: 860px;
+  text-align: left;
+}
+
+.title {
+  margin: 0 0 6px;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: 0.2px;
+}
+
+.search-subtitle {
+  margin: 0;
+  opacity: 0.85;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Shell card (glassy) */
+.search-shell {
+  width: 100%;
+  max-width: 860px;
+
+  border-radius: 18px;
+  padding: clamp(16px, 3.2vw, 22px);
+
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* Helper class */
 .flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
-.title {
-  font-size: 50px;
-  text-align: center;
-}
-
+/* Search bar */
 .searchBar {
-  position: relative;
-  top: 100px;
-  transition: top 0.8s ease-in;
-  z-index: 100;
   width: 100%;
-  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
 
+  position: relative;
+  top: 0;
+  transition: top 0.8s ease-in;
+  z-index: 2;
 }
 
+/* pastram selectorul, dar grid-ul controleaza layout-ul */
 .searchBar.flex-container {
   flex-direction: row;
-  font-size: 3rem;
-}
-
-.searchBar input[type='text'] {
-  flex: 2;
-  border-radius: 10px 10px 10px 10px;
-}
-
-.searchBar input[type='button'] {
-  flex: 1;
-  border-radius: 10px 10px 10px 10px;
-  background-color: #ed8404;
-  color: #1f0f02;
-  margin-left: 10px;
 }
 
 .searchBar input {
-  padding: 16px;
-  border: 2px solid #000000;
-}
-
-.searchBar input:focus {
+  font-size: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
   outline: none;
+
+  padding: 12px 12px;
+  background: rgba(255, 255, 255, 0.72);
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr 2fr;
-  gap: 10px;
-  justify-items: center;
-  align-items: center;
+.searchBar input[type="text"] {
+  width: 100%;
 }
 
-/*.weather.grid-container {
-  align-items: start;
-} */
-
-.weather div:first-child {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.searchBar input[type="text"]:focus {
+  border-color: rgba(0, 0, 0, 0.25);
 }
 
-.degrees {
-  text-align: center;
+.searchBar input[type="button"] {
+  cursor: pointer;
+  padding: 12px 16px;
+
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  background-color: #fe8c01;
+  font-weight: 600;
 }
 
+.searchBar input[type="button"]:hover {
+  background-color: #183153;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.searchBar input[type="button"]:active {
+  transform: translateY(1px);
+}
+
+/* City title (output) */
+.city {
+  margin: 14px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+/* Sections */
+.section-label {
+  margin: 0 0 10px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* Spinner */
 .loading {
-  width: 4rem;
-  height: 4rem;
-  border: 5px solid #0e0e0e;
-  border-top: 6px solid #ed7104;
-  border-radius: 100%;
-  margin: auto;
-  visibility: hidden;
+  width: 3.6rem;
+  height: 3.6rem;
+
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  border-top: 6px solid rgba(255, 165, 0, 0.95);
+  border-radius: 50%;
+
   position: fixed;
-  top: 45%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  visibility: hidden;
   animation: spin 1s infinite linear;
+
+  z-index: 9999;
+  pointer-events: none;
 }
 
 .loading.display {
@@ -102,89 +181,246 @@
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
+
+/* =========================
+   Weather + Forecast cards
+   IMPORTANT: opacitatea este controlata din JS.
+   Ca sa nu ocupe spatiu cand sunt "invizibile", le facem display:none
+   pana cand JS seteaza opacity:0.75
+   ========================= */
 
 .weather,
 .forecast {
+  /* default: ascunse complet (nu ocupa spatiu) */
+  display: none;
+
   opacity: 0;
   transition: opacity 1s ease-in;
-/*  background-color: #1f1c1c; */
-  background: rgba(255, 255, 255, 0.9);
-/*  padding: 20px;*/
-  width: 100%;
-  max-width: 800px;
-/*  border: 2px solid #b4becb; */
-  box-shadow: 5px 5px 10px black;
-/*  background: rgba(0, 0, 0, 0.1); */
-  border-radius: 10px;
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
-/*  border: 1px solid rgba(0, 0, 0, 0.18); */
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 20px;
-  z-index: 4;
+
+  margin-top: 14px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+  padding: 16px;
 }
 
+.weather.grid-container {
+  justify-items: center;
+  text-align: center;
+}
+
+.weather-meta {
+  text-align: center;
+}
+
+
+.weather:has(.degrees:empty),
+.forecast:has(.forecastTable:empty) {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Cand JS pune style="opacity: 0.75" -> afisam si pastram fade-in */
+.weather[style*="opacity: 0.75"],
+.forecast[style*="opacity: 0.75"] {
+  display: block;
+  opacity: 0.75;
+}
+
+/* Existing grid container – refăcut responsive */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 12px;
+  justify-items: start;
+  align-items: start;
+}
+
+.weather-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.degrees {
+  margin: 0;
+  text-align: center;
+  font-size: 28px;
+}
+
+.weather-meta p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Forecast table container */
 .forecast .grid-container {
   grid-template-columns: 1fr;
-  justify-items: start;
+  justify-items: stretch;
 }
+
+/* =========================
+   Table rows injected by JS 
+   ========================= */
 
 .table-grid {
-  border-bottom: 2px solid rgb(255, 106, 0);
   width: 100%;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  justify-items: center;
+  grid-template-columns: 2fr 56px 2fr 1fr 1fr;
+  gap: 10px;
+
   align-items: center;
+  justify-items: center;
+
+  padding: 10px 8px;
+  border-bottom: none;
+  position: relative;
 }
 
-@media (max-width: 500px) {
-  .searchBar.flex-container {
-    flex-direction: column;
-  }
+.table-grid::after {
+  content: "";
+  display: block;
 
-  .searchBar input[type='text'] {
-    width: 80%;
-    padding: 15px;
-    border-radius: 10px 10px 10px 10px;
-    border: 2px solid #b4becb;
-  }
+  width: 100%;
+  height: 1px;
+  margin-top: 12px;
 
-  .searchBar input[type='button'] {
-    border-radius: 10px 10px 10px 10px;
-    border: 2px solid #b4becb;
-    margin-top: 15px; 
-    padding: 15px;
-    margin: 10px 10px 10px 10px;
-  }
+  background: linear-gradient(
+    90deg,
+    rgba(255, 165, 0, 0.35),
+    rgba(255, 100, 100, 0.45),
+    rgba(155, 16, 155, 0.35)
+  );
 
-  .weather.grid-container {
-    grid-template-columns: 1fr;
-  }
+  border-radius: 2px;
+}
 
-  .forecast .grid-container {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
+/* ultimul rand fara separator */
+.table-grid:last-child::after {
+  display: none;
+}
 
-  .forecast p {
+.table-grid img {
+  width: 42px;
+  height: 42px;
+}
+
+.table-grid > * {
+  font-size: 13px;
+  opacity: 0.92;
+}
+
+.table-grid .mobile {
+  opacity: 0.9;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 700px) {
+  .search-header {
     text-align: center;
   }
 
-  .table-grid {
+  .searchBar {
     grid-template-columns: 1fr;
-    padding-bottom: 16px;
+  }
+
+  .searchBar input[type="button"] {
+    width: 100%;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .weather-main {
+    align-items: center;
+  }
+
+  .weather.grid-container {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .weather-meta {
+    text-align: center;
+  }
+
+  .weather-meta p {
+    margin: 0 0 8px;
+  }
+
+  /* Centrare elemente din "vremea in urmatoarele zile" */
+  .forecast {
+    text-align: center;
+  }
+
+  /* fiecare rand (table-grid) centrat */
+  .table-grid {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .table-grid > * {
+    width: 100%;
+  }
+
+  .table-grid img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .table-grid .mobile {
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .search-shell {
+    border-radius: 16px;
+    padding: 14px;
   }
 
   .weather,
   .forecast {
-    max-width: 300px;
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .table-grid {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .table-grid .mobile {
+    white-space: normal;
+  }
+
+  .table-grid::after {
+    height: 1.5px;
+    margin-top: 14px;
+
+    background: linear-gradient(
+      90deg,
+      rgba(255, 165, 0, 0.55),
+      rgba(255, 100, 100, 0.65),
+      rgba(155, 16, 155, 0.55)
+    );
   }
 }
