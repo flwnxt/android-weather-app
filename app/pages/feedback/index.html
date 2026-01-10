@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="feedback.css">
     <link rel="stylesheet" href="../../shared/css/global.css">
     <link rel="stylesheet" href="../../shared/css/navbar.css">
-    <link rel="stylesheet" href="../../shared/css/footer.css">
+    <link rel="stylesheet" href="../../shared/css/back-button.css">    <link rel="stylesheet" href="../../shared/css/footer.css">
     <script type="module">
       import { requireAuth } from "../../auth.js";
       requireAuth();
@@ -17,6 +17,7 @@
   <div class="app-layout">
     <!-- Navbar -->
     <div id="navbar-container"></div>
+    <div id="back-button-container"></div>
 
     <main class="feedback app-content">
       <section class="feedback-shell">
@@ -54,7 +55,7 @@
   </div>
   <!-- Inserare scripturi js -->
   <script src="../../shared/js/navbar.js"></script>
-  <script src="./feedback.js" defer></script>
+  <script src="../../shared/js/back-button.js" defer></script>
   <script src="../../shared/js/footer.js"></script>
 </body>
 </html>

@@ -11,6 +11,12 @@
   --primary: #183153;
 }
 
+/* Stilizarea distantei dintre butonul de back si urmatoarea componenta */
+/* .app-content {
+ 
+  padding: calc(clamp(24px, 6vh, 48px) + var(--back-btn-space)) 16px;
+} */
+
 /* Container principal floating */
 .contact-shell {
   width: min(820px, 92vw);

@@ -128,6 +128,7 @@
   border: 1px solid rgba(0, 0, 0, 0.14);
   background-color: #fe8c01;
   font-weight: 600;
+  color: var(--primary);
 }
 
 .searchBar input[type="button"]:hover {

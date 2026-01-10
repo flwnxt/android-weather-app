@@ -1,0 +1,107 @@
+/* =========================================================
+   Back Button Component
+   - Injected under navbar
+   - In normal document flow (NOT fixed / NOT sticky)
+   - Scrolls away naturally
+   - Compatible with navbar-offset JS
+   ========================================================= */
+
+:root {
+  --primary: #183153;
+
+  /* Optional fine tuning */
+  --back-btn-top-gap: 20px;
+}
+
+/* Container added in page HTML:
+   <div id="back-button-container"></div>
+   Must be placed AFTER navbar-container and BEFORE page content
+*/
+#back-button-container {
+  width: 100%;
+  box-sizing: border-box;
+
+  /* spacing under navbar */
+  padding-top: var(--back-btn-top-gap);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Wrapper coming from back-button.html */
+#back-button-container .app-back-wrap {
+  width: 100%;
+  max-width: 860px;      /* align with page headers/cards */
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* The button itself */
+#back-button-container .app-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 12px;
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+
+  color: var(--primary, #183153);
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover / active */
+#back-button-container .app-back-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  transform: translateY(-1px);
+}
+
+#back-button-container .app-back-btn:active {
+  transform: translateY(0);
+}
+
+/* Keyboard accessibility */
+#back-button-container .app-back-btn:focus-visible {
+  outline: 2px solid rgba(24, 49, 83, 0.35);
+  outline-offset: 2px;
+}
+
+/* =========================
+   Mobile adjustments
+   ========================= */
+@media (max-width: 768px) {
+  #back-button-container {
+    padding-left: calc(1rem + 8px);
+    padding-right: 1rem;
+  }
+
+  #back-button-container .app-back-wrap {
+    max-width: 100%;
+  }
+
+  #back-button-container .app-back-btn {
+    font-size: 15px;
+    padding: 9px 12px;
+  }
+}
