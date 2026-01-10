@@ -72,7 +72,8 @@ html {
 /* Design general GRI mat pentru toate card-urile din pagini */
 .home-shell,
 .contact-shell,
-.login-shell {
+.login-shell,
+.feedback-shell {
   background: rgba(220, 220, 220, 0.52); 
 
   backdrop-filter: blur(14px) saturate(110%);

@@ -1,0 +1,119 @@
+/* Feedback.css */
+
+/* Centrare container principal */
+main.feedback.app-content {
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 6vh, 48px) 16px;
+}
+
+/* Adaugare padding in interiorul containerului principal */
+.feedback-shell {
+  padding: 36px 34px; 
+  width: min(900px, 100%);
+  box-sizing: border-box;
+}
+
+/* Titluri  */
+.feedback-header { margin-bottom: 16px; }
+.feedback-title  { margin: 0 0 6px; font-size: 34px; letter-spacing: 0.2px; }
+.feedback-subtitle { margin: 0; opacity: 0.85; font-size: 14px; }
+
+.feedback-form {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+.feedback .field input,
+.feedback .field textarea {
+  width: 100%;
+  font-size: 15px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  outline: none;
+
+  padding: 10px 12px;
+}
+
+.feedback .field input:focus,
+.feedback .field textarea:focus {
+  border-color: rgba(241, 68, 68, 0.55);
+  box-shadow: 0 0 0 3px rgba(241, 68, 68, 0.16);
+}
+
+.feedback-form textarea:focus {
+  border-color: rgba(241, 68, 68, 0.55);
+  box-shadow: 0 0 0 3px rgba(241, 68, 68, 0.16);
+}
+
+.feedback .field {
+  display: grid;
+  gap: 8px;
+}
+
+.feedback .field-label {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}
+
+/* Stilizare buton CTA */
+.formButton {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+
+  background-color: #183153;
+  color: white;
+
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.formButton:hover {
+  background-color: #fe8c01;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+@media (min-width: 721px) {
+  .feedback-form {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+
+  .feedback-form .field--message {
+    grid-column: 1 / -1;
+  }
+
+  .feedback-form .formButton,
+  .feedback-form .error {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .feedback-shell {
+    padding: 22px 18px;
+    border-radius: 16px;
+    width: 100%;
+  }
+
+  .feedback-title {
+    font-size: 30px;
+  }
+
+  /* mobile = o singură coloană */
+  .feedback-form {
+    grid-template-columns: 1fr;
+  }
+}

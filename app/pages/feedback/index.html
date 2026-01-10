@@ -14,37 +14,44 @@
     </script>
 </head>
 <body>
-
+  <div class="app-layout">
+    <!-- Navbar -->
     <div id="navbar-container"></div>
 
-  <main class="card">
-    <h1>Feedback</h1>
-    <p>
-      <span class="badge info">Spune-ne parerea ta</span>
-    </p>
+    <main class="feedback app-content">
+      <section class="feedback-shell">
+        <header class="feedback-header">
+          <h1 class="feedback-title">Feedback</h1>
+          <p class="feedback-subtitle">Spune-ne parerea ta. Ne ajuta sa imbunatatim aplicatia.</p>
+        </header>
 
-    <form id="feedbackForm" novalidate>
-      <label>
-        <span class="badge secondary">Nume</span>
-        <input id="name" type="text" autocomplete="name" required />
-      </label>
+        <form id="feedbackForm" class="feedback-form" novalidate>
+          <label class="field">
+            <span class="field-label">Nume</span>
+            <input id="name" type="text" autocomplete="name" required />
+          </label>
 
-      <label>
-        <span class="badge secondary">Titlu</span>
-        <input id="title" type="text" required />
-      </label>
+          <label class="field">
+            <span class="field-label">Titlu</span>
+            <input id="title" type="text" required />
+          </label>
 
-      <label>
-        <span class="badge secondary">Text feedback</span>
-        <textarea id="message" rows="5" required></textarea>
-      </label>
+          <label class="field field-message">
+            <span class="field-label">Text feedback</span>
+            <textarea id="message" rows="5" required></textarea>
+          </label>
 
-      <button class="formButton" id="sendBtn" type="button">Trimite</button>
-      <p id="status" class="error" aria-live="polite"></p>
-    </form>
-</main>
+          <button class="formButton" id="sendBtn" type="button">Trimite</button>
+          <p id="status" class="error" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
 
-  <div id="footer-container"></div>
+
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+  </div>
   <!-- Inserare scripturi js -->
   <script src="../../shared/js/navbar.js"></script>
   <script src="./feedback.js" defer></script>
