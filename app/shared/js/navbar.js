@@ -11,6 +11,17 @@
   const html = await res.text();
   container.innerHTML = html;
 
+  // titlul paginii in mijlocul navbar-ului (mobile)
+  function setMobileNavTitle() {
+    const titleEl = container.querySelector("#navTitle");
+    if (!titleEl) return;
+
+    const pageTitle = document.body.dataset.pageTitle || "";
+    titleEl.textContent = pageTitle;
+  }
+
+  setMobileNavTitle();
+
   // Inserare setupAuthNav (face switch intre butoanele de Login si Logout)
   const authModule = await import("../../auth.js");
   authModule.setupAuthNav();
